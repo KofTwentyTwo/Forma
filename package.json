@@ -1,0 +1,31 @@
+{
+  "name": "forma",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Publish Markdown documentation to Confluence",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces",
+    "test": "npm run test --workspaces",
+    "lint": "npm run lint --workspaces",
+    "clean": "npm run clean --workspaces"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kof22/forma.git"
+  },
+  "keywords": [
+    "confluence",
+    "markdown",
+    "documentation",
+    "publishing",
+    "github-action"
+  ],
+  "author": "James Maes",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

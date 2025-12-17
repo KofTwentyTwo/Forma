@@ -1,0 +1,34 @@
+name: 'Forma - Publish to Confluence'
+description: 'Publish Markdown documentation to Confluence'
+author: 'James Maes'
+
+branding:
+  icon: 'upload-cloud'
+  color: 'blue'
+
+inputs:
+  config:
+    description: 'Path to config file'
+    required: false
+    default: '.confluence-publish.yml'
+  dry_run:
+    description: 'Show what would change without publishing'
+    required: false
+    default: 'false'
+  mapping:
+    description: 'Publish only specific mapping (by localRoot)'
+    required: false
+
+outputs:
+  pages_created:
+    description: 'Number of pages created'
+  pages_updated:
+    description: 'Number of pages updated'
+  pages_unchanged:
+    description: 'Number of pages unchanged'
+  root_page_url:
+    description: 'URL to the root Confluence page'
+
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
