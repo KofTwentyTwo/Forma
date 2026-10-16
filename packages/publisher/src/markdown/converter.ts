@@ -49,7 +49,8 @@ export class MarkdownConverter {
       const line = lines[i];
 
       // Heading
-      const headingMatch = line.match(/^(#{1,6})\s+(.+)$/);
+      // `\s+(\S.*)` keeps the separator and the text disjoint, so matching is linear.
+      const headingMatch = line.match(/^(#{1,6})\s+(\S.*)$/);
       if (headingMatch) {
         tokens.push({
           type: 'heading',
