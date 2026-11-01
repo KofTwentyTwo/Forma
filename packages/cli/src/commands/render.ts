@@ -10,7 +10,7 @@ interface RenderOptions {
 }
 
 export async function renderCommand(options: RenderOptions): Promise<void> {
-  const config = await loadConfig(options.config);
+  await loadConfig(options.config);
   // TODO: Implement render
   console.log('Rendering with config:', options.config);
   process.exit(0);

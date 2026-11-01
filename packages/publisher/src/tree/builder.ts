@@ -2,7 +2,7 @@
  * Builds page tree from local file system
  */
 
-import { readdir, readFile, stat } from 'node:fs/promises';
+import { readdir, readFile } from 'node:fs/promises';
 import { join, relative, dirname, basename, extname } from 'node:path';
 import type { Config, PageNode, AttachmentRef, Mapping } from '../types.js';
 
@@ -127,7 +127,7 @@ export class TreeBuilder {
           results.push(fullPath);
         }
       }
-    } catch (error) {
+    } catch {
       // Directory doesn't exist or can't be read
       console.warn(`Warning: Could not read directory ${dir}`);
     }

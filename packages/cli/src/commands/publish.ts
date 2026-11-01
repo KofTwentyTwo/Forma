@@ -12,7 +12,7 @@ interface PublishOptions {
 }
 
 export async function publishCommand(options: PublishOptions): Promise<void> {
-  const config = await loadConfig(options.config);
+  await loadConfig(options.config);
   // TODO: Implement publish
   console.log('Publishing with config:', options.config);
   process.exit(0);
