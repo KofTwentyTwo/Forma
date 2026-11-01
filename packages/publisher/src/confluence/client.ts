@@ -63,7 +63,7 @@ export class ConfluenceClient {
     const response = await fetch(url, {
       method,
       headers,
-      body: body ? (contentType === 'application/json' ? JSON.stringify(body) : body as BodyInit) : undefined,
+      body: body ? (contentType === 'application/json' ? JSON.stringify(body) : body as RequestInit['body']) : undefined,
     });
 
     if (!response.ok) {
@@ -402,7 +402,7 @@ export class ConfluenceClient {
   /**
    * Check if a specific macro/app is available
    */
-  async checkMacroAvailable(macroKey: string): Promise<boolean> {
+  async checkMacroAvailable(_macroKey: string): Promise<boolean> {
     try {
       // Try to get app info - this varies by macro
       // For Mermaid, we check if the macro exists in content templates

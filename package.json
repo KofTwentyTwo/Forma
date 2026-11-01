@@ -4,7 +4,8 @@
   "private": true,
   "description": "Publish Markdown documentation to Confluence",
   "workspaces": [
-    "packages/*"
+    "packages/publisher",
+    "packages/cli"
   ],
   "scripts": {
     "build": "npm run build --workspaces",
@@ -27,5 +28,11 @@
   "license": "MIT",
   "engines": {
     "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^22.20.5",
+    "eslint": "^10.14.0",
+    "typescript-eslint": "^8.72.1"
   }
 }

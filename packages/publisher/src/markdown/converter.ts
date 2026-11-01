@@ -201,7 +201,7 @@ export class MarkdownConverter {
         }
         return this.renderCodeBlock(token.content!, token.lang);
 
-      case 'list':
+      case 'list': {
         const listTag = token.ordered ? 'ol' : 'ul';
         const items = token.items!
           .map(itemTokens => {
@@ -212,6 +212,7 @@ export class MarkdownConverter {
           })
           .join('');
         return `<${listTag}>${items}</${listTag}>`;
+      }
 
       case 'blockquote':
         return `<blockquote><p>${this.convertInline(token.content!, context)}</p></blockquote>`;
@@ -298,7 +299,7 @@ export class MarkdownConverter {
     return result;
   }
 
-  private convertImage(alt: string, url: string, context: ConversionContext): string {
+  private convertImage(alt: string, url: string, _context: ConversionContext): string {
     // External URL
     if (url.startsWith('http://') || url.startsWith('https://')) {
       return `<ac:image><ri:url ri:value="${this.escapeHtml(url)}" /></ac:image>`;
@@ -309,7 +310,7 @@ export class MarkdownConverter {
     return `<ac:image><ri:attachment ri:filename="${this.escapeHtml(fileName)}" /></ac:image>`;
   }
 
-  private convertLink(text: string, url: string, context: ConversionContext): string {
+  private convertLink(text: string, url: string, _context: ConversionContext): string {
     // External URL
     if (url.startsWith('http://') || url.startsWith('https://')) {
       return `<a href="${this.escapeHtml(url)}">${text}</a>`;
